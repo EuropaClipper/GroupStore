@@ -9,6 +9,24 @@ public partial class View_MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        newNotificacion.Visible = false;
+        badge.InnerText = 0.ToString();
+        badge.Visible = false;
+        if (Session["usuario"] == null)
+        {
+            imgPerfil.ImageUrl = "~/Recursos/Imagenes/sin-foto.png";
+            mvDropDown.ActiveViewIndex = 0;
+            mvNav.ActiveViewIndex = 0;
+        }
+    }
+    protected void logOut_Click(object sender, EventArgs e)
+    {
+        Session["Usuario"] = null;
+        //Response.Redirect("Index.aspx");
+    }
 
+    protected void aVerPerfil_ServerClick(object sender, EventArgs e)
+    {
+        //Response.Redirect("VistaUsuario.aspx?user=" + ((Modelo.Miembro)Session["Usuario"]).Usuario);
     }
 }
