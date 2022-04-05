@@ -23,7 +23,7 @@
           <div class="row justify-content-center">
             <div class="col-9 col-md-4">
               <div class="text-center">
-                <span class="text-black">Seleccione rol a registrar</span>
+                <span class="text-black">Seleccione una opción</span>
               </div>
             </div>
             <div class="col-7 col-md-4 p-0">
@@ -76,7 +76,7 @@
                           id="I_Cedula"
                           placeholder="Cédula de ciudadanía"
                         />
-                        <label for="I_Cedula"> Cédula de ciudadanía</label>
+                        <label class="px-3" for="I_Cedula"> Cédula de ciudadanía</label>
                       </div>
                     </div>
                     <!---->
@@ -89,7 +89,7 @@
                           id="I_Correo"
                           placeholder="Correo electrónico"
                         />
-                        <label for="I_Correo"> Ingrese su correo electrónico</label>
+                        <label class="px-3" for="I_Correo"> Ingrese su correo electrónico</label>
                       </div>
                     </div>
                     <!---->
@@ -100,9 +100,9 @@
                           type="tel"
                           class="form-control"
                           id="I_Telefono"
-                          placeholder="Telefono"
+                          placeholder="Teléfono"
                         />
-                        <label for="I_Telefono"> Telefono</label>
+                        <label class="px-3" for="I_Telefono"> Teléfono</label>
                       </div>
                     </div>
                     <!---->
@@ -115,7 +115,7 @@
                           id="I_Direccion"
                           placeholder="Dirección"
                         />
-                        <label for="I_Direccion"> Dirección</label>
+                        <label class="px-3" for="I_Direccion"> Dirección</label>
                       </div>
                     </div>
                     <!---->
@@ -128,7 +128,7 @@
                           id="I_Empresa"
                           placeholder="Empresa"
                         />
-                        <label for="I_Empresa"> Empresa</label>
+                        <label class="px-3" for="I_Empresa"> Empresa</label>
                       </div>
                     </div>
                     <!---->
@@ -170,7 +170,7 @@
                             >¿Ya tienes cuenta en GroupStore?</span
                           >
                           <a href="VInicioSesion.aspx" class="text-decoration-none text-black"
-                            >Inicia sesion</a
+                            >Inicia sesión</a
                           >
                         </div>
                       </div>

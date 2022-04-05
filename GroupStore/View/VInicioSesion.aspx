@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     
-    <link href="../Content/EstilosGroupStore.css" rel="stylesheet" />
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
         <form
@@ -10,15 +10,18 @@
       class="d-flex flex-column my-3 mx-auto p-1 col-10 col-sm-8 col-md-6 col-lg-5 shadow rounded-3 bg-white"
     >
       <div class="container-fluid p-2">
-        <figure class="mb-5">
-          <div class="text-center">
-            <img
-              src="../Resources/Pagina/icono.png"
-              class="w-25 img_icono"
-              alt="Icono GroupStore"
-            />
+          <div class="row justify-content-center">
+             <figure class="my-5 col-10">
+             <div class="text-center">
+                <img
+                  src="../Resources/Pagina/logoGroupStore.jpg"
+                  class="w-100"
+                  alt="Icono GroupStore"
+                />
+              </div>
+            </figure>
           </div>
-        </figure>
+       
         <div class="mb-3 row justify-content-center">
           <div class="form-floating mb-3 col-10">
             <input
@@ -28,7 +31,7 @@
               placeholder="name@example.com"
               required
             />
-            <label for="I_Correo"> Correo electrónico</label>
+            <label class="px-3" for="I_Correo"> Correo electrónico</label>
           </div>
           <div class="form-floating col-10">
             <input
@@ -38,7 +41,7 @@
               placeholder="Contraseña"
               required
             />
-            <label for="I_Contrasena"> Contraseña</label>
+            <label class="px-3" for="I_Contrasena"> Contraseña</label>
           </div>
         </div>
         <div class="row justify-content-center">
