@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-public class Mapeo
+﻿using System.Data.Entity;
+public class Mapeo : DbContext
 {
-    public Mapeo()
+    static Mapeo()
     {
-       
+        Database.SetInitializer<Mapeo>(null);
     }
+    public Mapeo() : base("name=GroupStoreDB") { }
+    private readonly string schema;
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        modelBuilder.HasDefaultSchema(this.schema);
+        base.OnModelCreating(modelBuilder);
+     }
+    public virtual DbSet<EUsuario> Usuario { get; set; }
 }
