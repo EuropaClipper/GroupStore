@@ -12,7 +12,6 @@ public partial class View_MasterPage : System.Web.UI.MasterPage
         newNotificacion.Visible = false;
         badge.InnerText = 0.ToString();
         badge.Visible = false;
-        Session["usuario"] = null;
         if (Session["usuario"] == null)
         {
             imgPerfil.ImageUrl = "~/Resources/Pagina/sin_foto.png";

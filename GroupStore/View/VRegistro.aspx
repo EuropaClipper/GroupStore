@@ -54,7 +54,10 @@
                                             type="text"
                                             class="form-control"
                                             id="I_NombreNegocio"
-                                            placeholder="Digite el nombre del negocio" />
+                                            placeholder="Digite el nombre del negocio"
+                                            required
+                                            title="El nombre del negocio solo puede contener caracteres alfanumericos"
+                                            pattern="[A-Za-z0-9]{3-30}" />
                                         <label for="I_Nombres">Nombre del negocio</label>
                                     </div>
                                 </div>
@@ -67,7 +70,10 @@
                                             type="text"
                                             class="form-control"
                                             id="I_Nit"
-                                            placeholder="NIT de su negocio" />
+                                            placeholder="NIT de su negocio"
+                                            required
+                                            title="El NIT solo permite datos numericos y debe ser de tamaño 10"
+                                            pattern="[0-9]{10}" />
                                         <label class="px-3" for="I_Cedula">NIT del negocio</label>
                                     </div>
                                 </div>
@@ -80,7 +86,10 @@
                                             type="tel"
                                             class="form-control"
                                             id="I_TelefonoNegocio"
-                                            placeholder="Teléfono" />
+                                            placeholder="Teléfono"
+                                            required
+                                            title="El telefono solo permite datos numericos y debe ser de tamaño 10"
+                                            pattern="[0-9]{10}" />
                                         <label class="px-3" for="I_Telefono">Teléfono</label>
                                     </div>
                                 </div>
@@ -93,7 +102,10 @@
                                             type="text"
                                             class="form-control"
                                             id="I_DireccionNegocio"
-                                            placeholder="Dirección" />
+                                            placeholder="Dirección"
+                                            required
+                                            title="La direccion solo permite caracteres alfanumericos y # -"
+                                            pattern="[0-9]{5-50}" />
                                         <label class="px-3" for="I_Direccion">Dirección</label>
                                     </div>
                                 </div>
@@ -113,7 +125,10 @@
                                                 type="text"
                                                 class="form-control"
                                                 id="I_NombresAdmin"
-                                                placeholder="Digite sus nombres" />
+                                                placeholder="Digite sus nombres" 
+                                                required
+                                                title="El nombre solo permite caracteres alfabeticos y debe ser de tamaño mayor a 3 caracteres"
+                                                pattern="[A-Za-z]{3-30}"/>
                                             <label for="I_Nombres">Nombres</label>
                                         </div>
                                         <div class="form-floating col-6">
@@ -122,7 +137,10 @@
                                                 type="text"
                                                 class="form-control"
                                                 id="I_ApellidosAdmin"
-                                                placeholder="Digite sus apellidos" />
+                                                placeholder="Digite sus apellidos" 
+                                                required
+                                                title="El apellido solo permite caracteres alfabeticos y debe ser de tamaño mayor a 3 caracteres"
+                                                pattern="[A-Za-z]{3-30}"                                                />
                                             <label for="I_Apellidos">Apellidos</label>
                                         </div>
                                     </div>
@@ -136,7 +154,10 @@
                                             type="text"
                                             class="form-control"
                                             id="I_CedulaAdmin"
-                                            placeholder="Cédula de ciudadanía" />
+                                            placeholder="Cédula de ciudadanía"
+                                                required
+                                                title="La cedula solo permite caracteres numericos y debe contener entre 8 y 10 caracteres"
+                                                pattern="[0-9]{8-10}"                                            />
                                         <label class="px-3" for="I_Cedula">Cédula de ciudadanía</label>
                                     </div>
                                 </div>
@@ -149,7 +170,8 @@
                                             type="email"
                                             class="form-control"
                                             id="I_CorreoAdmin"
-                                            placeholder="Correo electrónico" />
+                                            placeholder="Correo electrónico" 
+                                            required/>
                                         <label class="px-3" for="I_Correo">Ingrese su correo electrónico</label>
                                     </div>
                                 </div>
@@ -163,7 +185,10 @@
                                                 type="text"
                                                 class="form-control"
                                                 id="I_ContrasenaAdmin"
-                                                placeholder="Digite sus nombres" />
+                                                placeholder="Digite sus nombres" 
+                                                required
+                                                title="La contraseña debe contener más de 8 caracteres"
+                                                pattern="[A-Za-z0-9[:punct:]]{8-50}"/>
                                             <label for="I_Nombres">Contraseña</label>
                                         </div>
                                         <div class="form-floating col-6">
@@ -172,7 +197,10 @@
                                                 type="text"
                                                 class="form-control"
                                                 id="I_CContrasenaAdmin"
-                                                placeholder="Digite sus apellidos" />
+                                                placeholder="Digite sus apellidos" 
+                                                required
+                                                title="La contraseña debe contener más de 8 caracteres"
+                                                pattern="[A-Za-z0-9[:punct:]]{8-50}"                                                />
                                             <label for="I_Apellidos">Confirmación</label>
                                         </div>
                                     </div>
