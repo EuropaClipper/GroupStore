@@ -52,7 +52,7 @@ public partial class View_VRegistro : System.Web.UI.Page
             }
             new UsuarioDAO().InsertarUsuario(usuario_nuevo);
         }
-        
+        this.ClientScript.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Registro exitoso');window.location.href=\"VInicioSesion.aspx\";</script>");
     }
 
 }
