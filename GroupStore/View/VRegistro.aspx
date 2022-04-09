@@ -50,6 +50,7 @@
                                 <div class="row mb-2 mb-md-3 mb-lg-3">
                                     <div class="form-floating mx-1 col-11">
                                         <input
+                                            runat="server"
                                             type="text"
                                             class="form-control"
                                             id="I_NombreNegocio"
@@ -62,6 +63,7 @@
                                 <div class="row mb-2 mb-md-3 mb-lg-3">
                                     <div class="form-floating mx-1 col-11">
                                         <input
+                                            runat="server"
                                             type="text"
                                             class="form-control"
                                             id="I_Nit"
@@ -74,6 +76,7 @@
                                 <div class="row mb-2 mb-md-3 mb-lg-3">
                                     <div class="form-floating mx-1 col-11">
                                         <input
+                                            runat="server"
                                             type="tel"
                                             class="form-control"
                                             id="I_TelefonoNegocio"
@@ -86,6 +89,7 @@
                                 <div class="row mb-2 mb-md-3 mb-lg-3">
                                     <div class="form-floating mx-1 col-11">
                                         <input
+                                            runat="server"
                                             type="text"
                                             class="form-control"
                                             id="I_DireccionNegocio"
@@ -105,6 +109,7 @@
                                     <div class="container d-inline-flex">
                                         <div class="form-floating px-1 col-5">
                                             <input
+                                                runat="server"
                                                 type="text"
                                                 class="form-control"
                                                 id="I_NombresAdmin"
@@ -113,6 +118,7 @@
                                         </div>
                                         <div class="form-floating col-6">
                                             <input
+                                                runat="server"
                                                 type="text"
                                                 class="form-control"
                                                 id="I_ApellidosAdmin"
@@ -126,6 +132,7 @@
                                 <div class="row mb-2 mb-md-3 mb-lg-3">
                                     <div class="form-floating mx-1 col-11">
                                         <input
+                                            runat="server"
                                             type="text"
                                             class="form-control"
                                             id="I_CedulaAdmin"
@@ -138,6 +145,7 @@
                                 <div class="row mb-2 mb-md-3 mb-lg-3">
                                     <div class="form-floating mx-1 col-11">
                                         <input
+                                            runat="server"
                                             type="email"
                                             class="form-control"
                                             id="I_CorreoAdmin"
@@ -151,6 +159,7 @@
                                     <div class="container d-inline-flex">
                                         <div class="form-floating px-1 col-5">
                                             <input
+                                                runat="server"
                                                 type="text"
                                                 class="form-control"
                                                 id="I_ContrasenaAdmin"
@@ -159,6 +168,7 @@
                                         </div>
                                         <div class="form-floating col-6">
                                             <input
+                                                runat="server"
                                                 type="text"
                                                 class="form-control"
                                                 id="I_CContrasenaAdmin"
@@ -176,6 +186,7 @@
                                     <div class="container d-inline-flex">
                                         <div class="form-floating px-1 col-5">
                                             <input
+                                                runat="server"
                                                 type="text"
                                                 class="form-control"
                                                 id="I_Nombres"
@@ -184,6 +195,7 @@
                                         </div>
                                         <div class="form-floating col-6">
                                             <input
+                                                runat="server"
                                                 type="text"
                                                 class="form-control"
                                                 id="I_Apellidos"
@@ -197,6 +209,7 @@
                                 <div class="row mb-2 mb-md-3 mb-lg-3">
                                     <div class="form-floating mx-1 col-11">
                                         <input
+                                            runat="server"
                                             type="text"
                                             class="form-control"
                                             id="I_Cedula"
@@ -209,6 +222,7 @@
                                 <div class="row mb-2 mb-md-3 mb-lg-3">
                                     <div class="form-floating mx-1 col-11">
                                         <input
+                                            runat="server"
                                             type="email"
                                             class="form-control"
                                             id="I_Correo"
@@ -222,6 +236,7 @@
                                     <div class="container d-inline-flex">
                                         <div class="form-floating px-1 col-5">
                                             <input
+                                                runat="server"
                                                 type="text"
                                                 class="form-control"
                                                 id="I_Contrasena"
@@ -230,6 +245,7 @@
                                         </div>
                                         <div class="form-floating col-6">
                                             <input
+                                                runat="server"
                                                 type="text"
                                                 class="form-control"
                                                 id="I_CContrasena"
@@ -243,6 +259,7 @@
                                 <div class="row mb-2 mb-md-3 mb-lg-3">
                                     <div class="form-floating mx-1 col-11">
                                         <input
+                                            runat="server"
                                             type="tel"
                                             class="form-control"
                                             id="I_Telefono"
@@ -255,6 +272,7 @@
                                 <div class="row mb-2 mb-md-3 mb-lg-3">
                                     <div class="form-floating mx-1 col-11">
                                         <input
+                                            runat="server"
                                             type="text"
                                             class="form-control"
                                             id="I_Direccion"
@@ -270,6 +288,7 @@
                                         <div class="row mb-2 mb-md-3 mb-lg-3">
                                             <div class="form-floating mx-1 col-11">
                                                 <input
+                                                    runat="server"
                                                     type="text"
                                                     class="form-control"
                                                     id="I_Empresa"
@@ -286,6 +305,7 @@
                                                     <label class="input-group-text" for="inputGroupFile01">
                                                         Certificados</label>
                                                     <input
+                                                        runat="server"
                                                         type="file"
                                                         class="form-control"
                                                         id="inputGroupFile01" />

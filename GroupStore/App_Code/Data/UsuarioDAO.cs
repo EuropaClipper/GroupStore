@@ -18,4 +18,12 @@ public class UsuarioDAO
         return false;
 
     }
+    public void InsertarUsuario(EUsuario usuario)
+    {
+        using (var db = new Mapeo())
+        {
+            db.Usuario.Add(usuario);
+            db.SaveChanges();
+        }
+    }
 }

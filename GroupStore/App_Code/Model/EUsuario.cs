@@ -10,6 +10,8 @@ public class EUsuario
     public string Nombre { get; set; }
     [Column("nit")]
     public string NIT { get; set; }
+    [NotMapped]
+    public ENegocio negocio { get { return new NegocioDAO().ObtenerNegocio(NIT); } set { } }
     [Key, Column("cedula")]
     public string Cedula { get; set; }
     [Column("correo")]
@@ -25,5 +27,7 @@ public class EUsuario
     [Column("certificados")]
     public string Certificados { get; set; }
     [Column("id_rol")]
-    public string ID_Rol { get; set; }
+    public int ID_Rol { get; set; }
+    [NotMapped]
+    public ERol rol{ get { return new RolDAO().ObtenerRol(ID_Rol); } set { } }
 }
