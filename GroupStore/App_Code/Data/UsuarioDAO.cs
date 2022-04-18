@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 public class UsuarioDAO
 {
@@ -10,6 +8,13 @@ public class UsuarioDAO
         using (var db = new Mapeo())
         {
             return db.Usuario.ToList();
+        }
+    }
+    public EUsuario ObtenerUsuario(string cedula)
+    {
+        using (var db = new Mapeo())
+        {
+            return db.Usuario.Where(x => x.Cedula.Equals(cedula)).FirstOrDefault();
         }
     }
     public bool VerificarUsuario(string correo, string contrasena)
@@ -25,5 +30,10 @@ public class UsuarioDAO
             db.Usuario.Add(usuario);
             db.SaveChanges();
         }
+
+    }
+    public bool correoDisponible(string correo)
+    {
+        return (ObtenerUsuarios().Find(x => x.Correo.Equals(correo)) == null) ? true : false;
     }
 }

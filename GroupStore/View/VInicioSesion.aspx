@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="Server">
     <form runat="server"
         id="form_registro"
-        class="d-flex flex-column my-3 mx-auto p-1 col-10 col-sm-8 col-md-6 col-lg-5 shadow rounded-3 bg-white">
+        class="d-flex flex-column my-5 mx-auto p-1 col-10 col-sm-8 col-md-6 col-lg-5 shadow rounded-3 bg-white">
         <div class="container-fluid p-2">
             <div class="row justify-content-center">
                 <figure class="my-5 col-10">
@@ -54,7 +54,7 @@
                 <div class="col-10">
                     <!--trigger modal -->
                     <a
-                        href=""
+                        href="#"
                         class="text-decoration-none text-black"
                         data-bs-toggle="modal"
                         data-bs-target="#Modal_RecuperarContrasena">Recuperar contraseña
@@ -84,9 +84,13 @@
                                                 id="I_CorreoRecuperacion"
                                                 type="email"
                                                 class="form-control"
-                                                placeholder="name@example.com"
-                                                 />
+                                                placeholder="name@example.com" />
+                                            <asp:RequiredFieldValidator ID="RFV_Correo" runat="server" ErrorMessage="Debe ingresar un correo" Display="Dynamic" ControlToValidate="I_CorreoRecuperacion" ValidationGroup="VG_InicioSesion" CssClass="text-danger"></asp:RequiredFieldValidator>
+                                            <asp:RegularExpressionValidator ID="REV_Correo" runat="server" ErrorMessage="Ingrese un correo valido" Display="Dynamic" ControlToValidate="I_CorreoRecuperacion" ValidationGroup="VG_InicioSesion" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"></asp:RegularExpressionValidator>
                                         </div>
+                                    </div>
+                                    <div class="row my-1">
+                                            
                                     </div>
                                 </div>
                                 <!---->
@@ -99,11 +103,14 @@
                                     </button>
                                     <button
                                         runat="server"
+                                        id="BtnContinuar"
+                                        validationgroup="VG_InicioSesion"
                                         onserverclick="Btn_Continuar_clic"
                                         type="button"
                                         class="btn btn-success">
                                         Continuar
                                     </button>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -120,5 +127,6 @@
             </div>
         </div>
     </form>
+
 </asp:Content>
 

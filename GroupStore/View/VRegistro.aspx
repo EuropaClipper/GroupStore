@@ -7,7 +7,7 @@
         <div class="container-fluid my-3 justify-content-center">
             <div class="row">
                 <!--Imagen que se oculta-->
-                <div class="col my-auto d-none d-lg-block d-md-block">
+                <div class="col my-auto d-none d-lg-block">
                     <img
                         src="../Resources/Pagina/Img_Registro.png"
                         class="rounded-3 w-100"
@@ -15,7 +15,7 @@
                 </div>
                 <!---->
                 <!--Columna ingreso de datos para el registro-->
-                <div class="col px-2">
+                <div class="col">
                     <!--mensaje de bienvenida-->
                     <div class="text-center mt-3">
                         <h2 class="fw-bold text-center m-3">Bienvenido a GroupStore</h2>
@@ -37,9 +37,10 @@
                         </div>
                     </div>
                     <!---->
-                    <!--obtener los datos del registro usuarios-->
-                    <div class="mt-4 ps-2 ps-md-4 ps-lg-5 py-4 shadow-lg">
+                    <!--obtener los datos del registro usuarios y negocios-->
+                    <div class="mt-4 ps-4 ps-md-5 py-4 shadow-lg">
                         <asp:MultiView ID="MV_Registro" runat="server">
+                            <!--Registro de negocios-->
                             <asp:View ID="V_RNegocio" runat="server">
                                 <div class="row mb-2 mb-md-3 mb-lg-3">
                                     <div class="col-11 mx-1 form-text">
@@ -56,8 +57,8 @@
                                             id="I_NombreNegocio"
                                             placeholder="Digite el nombre del negocio"
                                             required
-                                            title="El nombre del negocio solo puede contener caracteres alfanumericos"
-                                            pattern="[A-Za-z0-9]{3-30}" />
+                                            title="Debe contener caracteres alfanumericos con una extension de almenos 3 caracteres"
+                                            pattern="[A-Za-z0-9 &.-]{3,30}" />
                                         <label for="I_Nombres">Nombre del negocio</label>
                                     </div>
                                 </div>
@@ -77,13 +78,19 @@
                                         <label class="px-3" for="I_Cedula">NIT del negocio</label>
                                     </div>
                                 </div>
+                                <div class="row px-3">
+                                    <!-- Mensajes de Verificación -->
+                                    <div id="ErrorNIT" runat="server" class="d-none" role="alert">
+                                        Este NIT ya se encuentra registrado.
+                                    </div>
+                                </div>
                                 <!---->
                                 <!--Fila telefono-->
                                 <div class="row mb-2 mb-md-3 mb-lg-3">
                                     <div class="form-floating mx-1 col-11">
                                         <input
                                             runat="server"
-                                            type="tel"
+                                            type="text"
                                             class="form-control"
                                             id="I_TelefonoNegocio"
                                             placeholder="Teléfono"
@@ -104,8 +111,8 @@
                                             id="I_DireccionNegocio"
                                             placeholder="Dirección"
                                             required
-                                            title="La direccion solo permite caracteres alfanumericos y # -"
-                                            pattern="[0-9]{5-50}" />
+                                            title="La direccion solo permite caracteres alfanumericos, #, - y º"
+                                            pattern="[A-Za-z0-9 #-]{5,50}" />
                                         <label class="px-3" for="I_Direccion">Dirección</label>
                                     </div>
                                 </div>
@@ -125,11 +132,11 @@
                                                 type="text"
                                                 class="form-control"
                                                 id="I_NombresAdmin"
-                                                placeholder="Digite sus nombres" 
+                                                placeholder="Digite sus nombres"
                                                 required
                                                 title="El nombre solo permite caracteres alfabeticos y debe ser de tamaño mayor a 3 caracteres"
-                                                pattern="[A-Za-z]{3-30}"/>
-                                            <label for="I_Nombres">Nombres</label>
+                                                pattern="[A-Za-z ]{3,30}" />
+                                            <label for="I_NombresAdmin">Nombres</label>
                                         </div>
                                         <div class="form-floating col-6">
                                             <input
@@ -137,11 +144,11 @@
                                                 type="text"
                                                 class="form-control"
                                                 id="I_ApellidosAdmin"
-                                                placeholder="Digite sus apellidos" 
+                                                placeholder="Digite sus apellidos"
                                                 required
                                                 title="El apellido solo permite caracteres alfabeticos y debe ser de tamaño mayor a 3 caracteres"
-                                                pattern="[A-Za-z]{3-30}"                                                />
-                                            <label for="I_Apellidos">Apellidos</label>
+                                                pattern="[A-Za-z ]{3,30}" />
+                                            <label for="I_ApellidosAdmin">Apellidos</label>
                                         </div>
                                     </div>
                                 </div>
@@ -155,10 +162,16 @@
                                             class="form-control"
                                             id="I_CedulaAdmin"
                                             placeholder="Cédula de ciudadanía"
-                                                required
-                                                title="La cedula solo permite caracteres numericos y debe contener entre 8 y 10 caracteres"
-                                                pattern="[0-9]{8-10}"                                            />
-                                        <label class="px-3" for="I_Cedula">Cédula de ciudadanía</label>
+                                            required
+                                            title="La cedula solo permite caracteres numericos y debe contener entre 8 y 10 caracteres"
+                                            pattern="[0-9]{8,10}" />
+                                        <label class="px-3" for="I_CedulaAdmin">Cédula de ciudadanía</label>
+                                    </div>
+                                </div>
+                                <div class="row px-3">
+                                    <!-- Mensajes de Verificación -->
+                                    <div id="errorCedulaAdmin" runat="server" class="d-none" role="alert">
+                                        Esta cédula ya se encuentra registrada.
                                     </div>
                                 </div>
                                 <!---->
@@ -170,9 +183,15 @@
                                             type="email"
                                             class="form-control"
                                             id="I_CorreoAdmin"
-                                            placeholder="Correo electrónico" 
-                                            required/>
-                                        <label class="px-3" for="I_Correo">Ingrese su correo electrónico</label>
+                                            placeholder="Correo electrónico"
+                                            required />
+                                        <label class="px-3" for="I_CorreoAdmin">Ingrese su correo electrónico</label>
+                                    </div>
+                                </div>
+                                <div class="row px-3">
+                                    <!-- Mensajes de Verificación -->
+                                    <div id="errorCorreoAdmin" runat="server" class="d-none" role="alert">
+                                        El correo ya está en uso. Elige otro.
                                     </div>
                                 </div>
                                 <!---->
@@ -182,32 +201,40 @@
                                         <div class="form-floating px-1 col-5">
                                             <input
                                                 runat="server"
-                                                type="text"
+                                                type="password"
                                                 class="form-control"
                                                 id="I_ContrasenaAdmin"
-                                                placeholder="Digite sus nombres" 
+                                                placeholder="Digite sus nombres"
                                                 required
-                                                title="La contraseña debe contener más de 8 caracteres"
-                                                pattern="[A-Za-z0-9[:punct:]]{8-50}"/>
-                                            <label for="I_Nombres">Contraseña</label>
+                                                title="Debe contener al menos un número y una letra mayúscula y minúscula, y al menos 8 o más caracteres"
+                                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}" />
+                                            <label for="I_ContrasenaAdmin">Contraseña</label>
                                         </div>
                                         <div class="form-floating col-6">
                                             <input
                                                 runat="server"
-                                                type="text"
+                                                type="password"
                                                 class="form-control"
                                                 id="I_CContrasenaAdmin"
-                                                placeholder="Digite sus apellidos" 
+                                                placeholder="Digite sus apellidos"
                                                 required
-                                                title="La contraseña debe contener más de 8 caracteres"
-                                                pattern="[A-Za-z0-9[:punct:]]{8-50}"                                                />
-                                            <label for="I_Apellidos">Confirmación</label>
+                                                title="Debe contener al menos un número y una letra mayúscula y minúscula, y al menos 8 o más caracteres"
+                                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}" />
+                                            <label for="I_CContrasenaAdmin">Confirmación</label>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="row px-3">
+                                    <!-- Mensajes de Verificación -->
+                                    <div id="errorContrasenaAdmin" runat="server" class="alert alert-danger col-11  d-none" role="alert">
+                                        Las Contraseñas no coinciden, vuelva a intentar !
                                     </div>
                                 </div>
                                 <!---->
                                 <!---->
                             </asp:View>
+                            <!---->
+                            <!--Registro de usuarios compradores y proveedores-->
                             <asp:View ID="V_RUsuarios" runat="server">
                                 <!-- Fila de nombre-->
                                 <div class="row mb-2 mb-md-3 mb-lg-3">
@@ -218,7 +245,10 @@
                                                 type="text"
                                                 class="form-control"
                                                 id="I_Nombres"
-                                                placeholder="Digite sus nombres" />
+                                                placeholder="Digite sus nombres"
+                                                required
+                                                title="Solo se permiten caracteres alfabeticos, la longitud debe ser mayor o igual a 3 caracteres"
+                                                pattern="[A-Za-z ñÑ]{3,30}" />
                                             <label for="I_Nombres">Nombres</label>
                                         </div>
                                         <div class="form-floating col-6">
@@ -227,7 +257,10 @@
                                                 type="text"
                                                 class="form-control"
                                                 id="I_Apellidos"
-                                                placeholder="Digite sus apellidos" />
+                                                placeholder="Digite sus apellidos"
+                                                required
+                                                title="Solo se permiten caracteres alfabeticos, la longitud debe ser mayor o igual a 3 caracteres"
+                                                pattern="[A-Za-z ñÑ]{3,30}" />
                                             <label for="I_Apellidos">Apellidos</label>
                                         </div>
                                     </div>
@@ -241,8 +274,17 @@
                                             type="text"
                                             class="form-control"
                                             id="I_Cedula"
-                                            placeholder="Cédula de ciudadanía" />
+                                            placeholder="Cédula de ciudadanía"
+                                            required
+                                            title="Debe contener 10 digitos numericos"
+                                            pattern="[0-9]{10}" />
                                         <label class="px-3" for="I_Cedula">Cédula de ciudadanía</label>
+                                    </div>
+                                </div>
+                                <div class="row px-3">
+                                    <!-- Mensajes de Verificación -->
+                                    <div id="errorCedula" runat="server" class="d-none" role="alert">
+                                        Esta cédula ya se encuentra registrada.
                                     </div>
                                 </div>
                                 <!---->
@@ -254,8 +296,15 @@
                                             type="email"
                                             class="form-control"
                                             id="I_Correo"
-                                            placeholder="Correo electrónico" />
+                                            placeholder="Correo electrónico"
+                                            required />
                                         <label class="px-3" for="I_Correo">Ingrese su correo electrónico</label>
+                                    </div>
+                                </div>
+                                <div class="row px-3">
+                                    <!-- Mensajes de Verificación -->
+                                    <div id="errorCorreo" runat="server" class="d-none" role="alert">
+                                        El correo ya está en uso. Elige otro.
                                     </div>
                                 </div>
                                 <!---->
@@ -265,21 +314,33 @@
                                         <div class="form-floating px-1 col-5">
                                             <input
                                                 runat="server"
-                                                type="text"
+                                                type="password"
                                                 class="form-control"
                                                 id="I_Contrasena"
-                                                placeholder="Digite sus nombres" />
-                                            <label for="I_Nombres">Contraseña</label>
+                                                placeholder="Digite su contraseña"
+                                                required
+                                                title="Debe contener al menos un número y una letra mayúscula y minúscula, y al menos 8 o más caracteres"
+                                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}" />
+                                            <label for="I_Contrasena">Contraseña</label>
                                         </div>
                                         <div class="form-floating col-6">
                                             <input
                                                 runat="server"
-                                                type="text"
+                                                type="password"
                                                 class="form-control"
                                                 id="I_CContrasena"
-                                                placeholder="Digite sus apellidos" />
-                                            <label for="I_Apellidos">Confirmación</label>
+                                                placeholder="Digite su contraseña"
+                                                required
+                                                title="Debe contener al menos un número y una letra mayúscula y minúscula, y al menos 8 o más caracteres"
+                                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}" />
+                                            <label for="I_CContrasena">Confirmación</label>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="row px-3">
+                                    <!-- Mensajes de Verificación -->
+                                    <div id="errorContrasena" runat="server" class="alert alert-danger col-11  d-none" role="alert">
+                                        Las Contraseñas no coinciden, vuelva a intentar !
                                     </div>
                                 </div>
                                 <!---->
@@ -291,7 +352,10 @@
                                             type="tel"
                                             class="form-control"
                                             id="I_Telefono"
-                                            placeholder="Teléfono" />
+                                            placeholder="Teléfono"
+                                            required
+                                            title="Debe contener 10 digitos numericos sin caracteres ni espacios"
+                                            pattern="[0-9]{10}" />
                                         <label class="px-3" for="I_Telefono">Teléfono</label>
                                     </div>
                                 </div>
@@ -304,7 +368,10 @@
                                             type="text"
                                             class="form-control"
                                             id="I_Direccion"
-                                            placeholder="Dirección" />
+                                            placeholder="Dirección"
+                                            required
+                                            title="Verifique su direccion"
+                                            pattern="[A-Za-z0-9 ñÑ \-#]{3,50}" />
                                         <label class="px-3" for="I_Direccion">Dirección</label>
                                     </div>
                                 </div>
@@ -320,7 +387,9 @@
                                                     type="text"
                                                     class="form-control"
                                                     id="I_Empresa"
-                                                    placeholder="Empresa" />
+                                                    placeholder="Empresa"
+                                                    title="bebe contener caracteres alfanumericos # - &"
+                                                    pattern="[A-Za-z0-9 ñÑ#-&]{3,}" />
                                                 <label class="px-3" for="I_Empresa">Empresa</label>
                                             </div>
                                         </div>
@@ -336,7 +405,8 @@
                                                         runat="server"
                                                         type="file"
                                                         class="form-control"
-                                                        id="inputGroupFile01" />
+                                                        id="inputGroupFile01"
+                                                        multiple />
                                                 </div>
                                             </div>
                                         </div>
@@ -344,6 +414,7 @@
                                     </asp:View>
                                 </asp:MultiView>
                             </asp:View>
+                            <!---->
                         </asp:MultiView>
                         <!--Fila boton registrar-->
                         <div class="row mb-3">
@@ -375,4 +446,3 @@
         </div>
     </form>
 </asp:Content>
-

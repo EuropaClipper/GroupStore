@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 
 public class NegocioDAO
@@ -10,21 +8,21 @@ public class NegocioDAO
     {
         using (var db = new Mapeo())
         {
-            return db.negocio.ToList();
+            return db.Negocio.ToList();
         }
     }
     public ENegocio ObtenerNegocio(string nit)
     {
-        using(var db = new Mapeo())
+        using (var db = new Mapeo())
         {
-            return db.negocio.Where(x => x.Nit.Equals(nit)).FirstOrDefault();
+            return db.Negocio.Where(x => x.Nit.Equals(nit)).FirstOrDefault();
         }
     }
     public void InsertarNegocio(ENegocio negocio)
     {
-        using(var db = new Mapeo())
+        using (var db = new Mapeo())
         {
-            db.negocio.Add(negocio);
+            db.Negocio.Add(negocio);
             db.SaveChanges();
         }
     }

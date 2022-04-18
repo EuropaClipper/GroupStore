@@ -6,14 +6,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 [Table("usuario", Schema = "public")]
 public class EUsuario
 {
-    [Column("nombre")]
-    public string Nombre { get; set; }
-    [Column("nit")]
-    public string NIT { get; set; }
-    [NotMapped]
-    public ENegocio negocio { get { return new NegocioDAO().ObtenerNegocio(NIT); } set { } }
     [Key, Column("cedula")]
     public string Cedula { get; set; }
+    [Column("nombres")]
+    public string Nombres { get; set; }
+    [Column("apellidos")]
+    public string  Apellidos { get; set; }
     [Column("correo")]
     public string Correo { get; set; }
     [Column("contrasena")]

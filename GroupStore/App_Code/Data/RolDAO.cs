@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 
 
 public class RolDAO
@@ -10,7 +7,7 @@ public class RolDAO
     {
         using (var db = new Mapeo())
         {
-            return db.rol.Where(x => x.Id_rol.Equals(id_rol)).FirstOrDefault();
+            return db.Rol.Where(x => x.Id_rol.Equals(id_rol)).FirstOrDefault();
         }
     }
 }

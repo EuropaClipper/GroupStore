@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 [Serializable]
-[Table("rol", Schema = "public")]
+[Table("roles", Schema = "public")]
 public class ERol
 {
     [Key,Column("id_rol")]
