@@ -30,5 +30,21 @@ public class ProductoDAO
             db.SaveChanges();
         }
     }
-    //faltan los metodos obtener -tener en cuenta los join
+    //#faltan los metodos obtener *tener en cuenta los join *no se usaron los join
+    //para conseguir los datos del join se usó [NotMapped] en metodos que regresan
+    //un objeto que representa la tabla con la que se relaciona 
+    public EProducto obtenerProducto(string codigoProducto)
+    {
+        using(var db = new Mapeo())
+        {
+            return db.Producto.Where(x => x.Codigo.Equals(codigoProducto)).FirstOrDefault();
+        }
+    }
+    public List<EProducto> obtenerProductos()
+    {
+        using (var db = new Mapeo())
+        {
+            return db.Producto.ToList();
+        }
+    }
 }

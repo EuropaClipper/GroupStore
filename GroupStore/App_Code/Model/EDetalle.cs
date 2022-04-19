@@ -15,7 +15,7 @@ public class EDetalle
     [Column("codigo_producto")]
     public string CodigoProducto { get; set; }
     [NotMapped]
-    public EProducto Producto { get { return new ProductoDAO()} set; }
+    public EProducto Producto { get { return new ProductoDAO().obtenerProducto(CodigoProducto); } set { } }
     [Column("codigo_bodega")]
     public int CodigoBodega { get; set; }
     [NotMapped]

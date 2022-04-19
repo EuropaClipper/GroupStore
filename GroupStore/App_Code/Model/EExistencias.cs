@@ -10,6 +10,8 @@ public class EExistencias
     public int ID { get; set; }
     [Column("codigo_producto")]
     public string CodigoProducto { get; set; }
+    [NotMapped]
+    public EProducto Producto { get { return new ProductoDAO().obtenerProducto(CodigoProducto); } set { } }
     [Column("codigo_bodega")]
     public int CodigoBodega { get; set; }
     [NotMapped]

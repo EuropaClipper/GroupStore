@@ -14,6 +14,8 @@ public class EDetalleCarrito
     public ECarrito carrito { get { return new CarritoDAO().obtenerCarrito(IDCarrito); } set { } }
     [Column("codigo_producto")]
     public string CodigoProducto { get; set; }
+    [NotMapped]
+    public EProducto Producto { get { return new ProductoDAO().obtenerProducto(CodigoProducto); } set { } }
     [Column("cantidad")]
     public int Cantidad { get; set; }
     [Column("subtotal")]
