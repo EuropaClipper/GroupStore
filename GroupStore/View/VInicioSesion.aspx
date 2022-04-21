@@ -85,12 +85,11 @@
                                                 type="email"
                                                 class="form-control"
                                                 placeholder="name@example.com" />
-                                            <asp:RequiredFieldValidator ID="RFV_Correo" runat="server" ErrorMessage="Debe ingresar un correo" Display="Dynamic" ControlToValidate="I_CorreoRecuperacion" ValidationGroup="VG_InicioSesion" CssClass="text-danger"></asp:RequiredFieldValidator>
-                                            <asp:RegularExpressionValidator ID="REV_Correo" runat="server" ErrorMessage="Ingrese un correo valido" Display="Dynamic" ControlToValidate="I_CorreoRecuperacion" ValidationGroup="VG_InicioSesion" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"></asp:RegularExpressionValidator>
                                         </div>
                                     </div>
                                     <div class="row my-1">
-                                            
+                                        <asp:RequiredFieldValidator ID="RFV_Correo" runat="server" ErrorMessage="Debe ingresar un correo" Display="Dynamic" ControlToValidate="I_CorreoRecuperacion" ValidationGroup="VG_InicioSesion" CssClass="text-danger"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="REV_Correo" runat="server" ErrorMessage="Ingrese un correo valido" Display="Dynamic" ControlToValidate="I_CorreoRecuperacion" ValidationGroup="VG_InicioSesion" CssClass="text-danger" ValidationExpression="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"></asp:RegularExpressionValidator>
                                     </div>
                                 </div>
                                 <!---->
@@ -110,7 +109,7 @@
                                         class="btn btn-success">
                                         Continuar
                                     </button>
-                                    
+
                                 </div>
                             </div>
                         </div>

@@ -18,6 +18,8 @@ public class ETokenRecuperacion
     public string CedulaUsuario { get; set; }
     [NotMapped]
     public EUsuario Usuario{ get { return new UsuarioDAO().ObtenerUsuario(CedulaUsuario); } set { } }
+    //el estado hace referencia a si el token ya fue usado
+    //true: ya fue usado false: aún no se ha usado
     [Column("estado")]
     public bool Estado { get; set; }
     [NotMapped]

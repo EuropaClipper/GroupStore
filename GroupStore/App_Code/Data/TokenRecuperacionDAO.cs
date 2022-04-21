@@ -13,5 +13,18 @@ public class TokenRecuperacionDAO
             db.SaveChanges();
         }
     }
-
+    public ETokenRecuperacion obtenerTokenUsuario(EUsuario usuario)
+    {
+        using(var db = new Mapeo())
+        {
+            return db.TokenRecuperacion.Where(x => x.CedulaUsuario.Equals(usuario.Cedula) && x.FechaCaducidad > DateTime.Now).FirstOrDefault();
+        }
+    }
+    public ETokenRecuperacion verificarToken(string token)
+    {
+        using(var db = new Mapeo())
+        {
+            return db.TokenRecuperacion.Where(x => x.TokenGenerado.Equals(token)).FirstOrDefault();
+        }
+    }
 }

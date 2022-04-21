@@ -34,6 +34,6 @@ public class UsuarioDAO
     }
     public bool correoDisponible(string correo)
     {
-        return (ObtenerUsuarios().Find(x => x.Correo.Equals(correo)) == null) ? true : false;
+        return ObtenerUsuarios().Find(x => x.Correo.Equals(correo)) == null ? true : false;
     }
 }
