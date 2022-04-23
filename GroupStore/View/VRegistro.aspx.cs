@@ -4,7 +4,6 @@ public partial class View_VRegistro : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
         switch (DDL_Roles.SelectedValue)
         {
             case "Comprador":

@@ -36,4 +36,13 @@ public class UsuarioDAO
     {
         return ObtenerUsuarios().Find(x => x.Correo.Equals(correo)) == null ? true : false;
     }
+    public void actualizarUsuario(EUsuario usuario)
+    {
+        using(var db = new Mapeo())
+        {
+            db.Usuario.Attach(usuario);
+            db.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+        }
+    }
 }

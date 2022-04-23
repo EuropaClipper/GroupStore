@@ -74,6 +74,9 @@
                                 </div>
                                 <!--Cuerpo del modal-->
                                 <div class="modal-body">
+                                    <div class="my-2">
+                                        <p>Las instrucciones de recuperación de contraseña se enviaran<br />al correo especificado en el registro.</p>
+                                    </div>
                                     <div class="row mb-1">
                                         <span class="fst-italic">Ingrese su correo electrónico</span>
                                     </div>
