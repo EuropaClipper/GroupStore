@@ -9,7 +9,19 @@ public partial class View_MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        inicio.Attributes.Add("class", "nav-link active");
+        newNotificacion.Visible = false;
+        badge.InnerText = 0.ToString();
+        badge.Visible = false;
+        if (Session["usuario"] == null)
+        {
+            mvDropDown.ActiveViewIndex = 0;
+            mvNav.ActiveViewIndex = 0;
+        }
+        else
+        {
+            mvDropDown.ActiveViewIndex = 1;
+            mvNav.ActiveViewIndex = 1;
+        }
     }
     protected void logOut_Click(object sender, EventArgs e)
     {
@@ -20,52 +32,5 @@ public partial class View_MasterPage : System.Web.UI.MasterPage
     protected void aVerPerfil_ServerClick(object sender, EventArgs e)
     {
         //Response.Redirect("VistaUsuario.aspx?user=" + ((Modelo.Miembro)Session["Usuario"]).Usuario);
-    }
-
-    protected void categoria_ServerClick(object sender, EventArgs e)
-    {
-        inicio.Attributes.Add("class", "nav-link");
-        categoria.Attributes.Add("class", "nav-link active");
-        tiendas.Attributes.Add("class", "nav-link");
-        proveedores.Attributes.Add("class", "nav-link");
-        contacto.Attributes.Add("class", "nav-link");
-        
-    }
-
-    protected void inicio_ServerClick(object sender, EventArgs e)
-    {
-        inicio.Attributes.Add("class", "nav-link active");
-        categoria.Attributes.Add("class", "nav-link");
-        tiendas.Attributes.Add("class", "nav-link");
-        proveedores.Attributes.Add("class", "nav-link");
-        contacto.Attributes.Add("class", "nav-link");
-
-    }
-
-    protected void tiendas_ServerClick(object sender, EventArgs e)
-    {
-        inicio.Attributes.Add("class", "nav-link");
-        categoria.Attributes.Add("class", "nav-link");
-        tiendas.Attributes.Add("class", "nav-link active");
-        proveedores.Attributes.Add("class", "nav-link");
-        contacto.Attributes.Add("class", "nav-link");
-    }
-
-    protected void proveedores_ServerClick(object sender, EventArgs e)
-    {
-        inicio.Attributes.Add("class", "nav-link");
-        categoria.Attributes.Add("class", "nav-link");
-        tiendas.Attributes.Add("class", "nav-link");
-        proveedores.Attributes.Add("class", "nav-link active");
-        contacto.Attributes.Add("class", "nav-link");
-    }
-
-    protected void contacto_ServerClick(object sender, EventArgs e)
-    {
-        inicio.Attributes.Add("class", "nav-link");
-        categoria.Attributes.Add("class", "nav-link");
-        tiendas.Attributes.Add("class", "nav-link");
-        proveedores.Attributes.Add("class", "nav-link");
-        contacto.Attributes.Add("class", "nav-link active");
     }
 }

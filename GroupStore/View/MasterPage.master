@@ -6,45 +6,72 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="../Content/bootstrap.min.css" rel="stylesheet">
-    <link href="../Content/bootstrap-icons-1.8.1/bootstrap-icons.css" rel="stylesheet" />
     <script src="../Scripts/bootstrap.min.js"></script>
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+                <!--<a href="#">
+                    <img src="#" height="40" /></a>-->
+                <!-- el icono responsive que aparece cuando la ventana se acorta-->
+                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Menu del perfil -->
+                <div class="dropdown order-sm-last m-md-3 mb-md-0 mt-md-0">
+                    <button type="button" class="btn btn-dark">
+                        <a href="#" class="text-decoration-none text-light"><span class="badge text-light"></span>
+                            <svg viewBox="0 0 28 28" alt="" fill="white" height="20" width="20">
+                                <path d="M7.847 23.488C9.207 23.488 11.443 23.363 14.467 22.806 13.944 24.228 12.581 25.247 10.98 25.247 9.649 25.247 8.483 24.542 7.825 23.488L7.847 23.488ZM24.923 15.73C25.17 17.002 24.278 18.127 22.27 19.076 21.17 19.595 18.724 20.583 14.684 21.369 11.568 21.974 9.285 22.113 7.848 22.113 7.421 22.113 7.068 22.101 6.79 22.085 4.574 21.958 3.324 21.248 3.077 19.976 2.702 18.049 3.295 17.305 4.278 16.073L4.537 15.748C5.2 14.907 5.459 14.081 5.035 11.902 4.086 7.022 6.284 3.687 11.064 2.753 15.846 1.83 19.134 4.096 20.083 8.977 20.506 11.156 21.056 11.824 21.986 12.355L21.986 12.356 22.348 12.561C23.72 13.335 24.548 13.802 24.923 15.73Z"></path>
+                            </svg>
+                        </a>
+                    </button>
+                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg>
+                        <span runat="server" id="newNotificacion" class="position-absolute top-0 start-0 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
+                    </button>
+                    <asp:MultiView ID="mvDropDown" runat="server">
+                        <asp:View ID="mvDropDownInvitado" runat="server">
+                            <ul class="dropdown-menu dropdown-menu-end" runat="server" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="VRegistro.aspx">Registro</a></li>
+                                <li><a class="dropdown-item" href="VInicioSesion.aspx">Login</a></li>
+                            </ul>
+                        </asp:View>
+                        <asp:View ID="nvDropDownLogin" runat="server">
+                            <ul class="dropdown-menu dropdown-menu-end" runat="server" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" id="aVerPerfil" runat="server" onserverclick="aVerPerfil_ServerClick">Ver perfil  <span runat="server" id="badge" class="badge bg-danger">4</span></a></li>
+                                <li><a class="dropdown-item" id="Salir" onserverclick="logOut_Click" runat="server">Log Out</a>
+                            </ul>
+                        </asp:View>
+                    </asp:MultiView>
 
-    <header class="p-3 bg-dark text-white">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 px-3 mb-4 border-bottom bg-dark">
-            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                    <use xlink:href="#bootstrap"></use></svg>
-            </a>
-
-            
-
-            <ul class="nav nav-pills col-12 col-md-5 mb-2 justify-content-center mb-md-0">
-                <li class="nav-item"><a onserverclick="inicio_ServerClick" runat="server" id="inicio" class="nav-link">Inicio</a></li>
-                <li class="nav-item"><a onserverclick="categoria_ServerClick" runat="server" id="categoria" class="nav-link">Categoria</a></li>
-                <li class="nav-item"><a onserverclick="tiendas_ServerClick" runat="server" id="tiendas" class="nav-link">Tiendas</a></li>
-                <li class="nav-item"><a onserverclick="proveedores_ServerClick" runat="server" id="proveedores" class="nav-link">Proveedores</a></li>
-                <li class="nav-item"><a onserverclick="contacto_ServerClick" runat="server" id="contacto" class="nav-link">Contacto</a></li>
-            </ul>
-
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-0">
-                <div class="input-group">
-                    <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="bi bi-search"></i></button>
                 </div>
-
-            </form>
-            <div class="text-end">
-
-
-                <button type="button" class="btn btn-outline-primary me-2">Iniciar Sesión</button>
-                <button type="button" class="btn btn-primary">Registrarse</button>
+                <!--Los menus que se ocultan cuando se acorta la ventana -->
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <asp:MultiView ID="mvNav" runat="server">
+                        <asp:View ID="mvNavInvitado" runat="server">
+                            <ul class="navbar-nav me-auto" runat="server">
+                                <li class="nav-item"><a class="nav-link" href="VRegistro.aspx">Registro</a></li>
+                                <li class="nav-item"><a class="nav-link" href="VInicioSesion.aspx">Login</a></li>
+                            </ul>
+                        </asp:View>
+                        <asp:View ID="mvNavLogin" runat="server">
+                            <ul class="navbar-nav me-auto" runat="server">
+                                <li class="nav-item"><a class="navbar-brand" href="#">Inicio</a></li>
+                            </ul>
+                        </asp:View>
+                    </asp:MultiView>
+                </div>
+                <!---->
             </div>
-        </div>
+        </nav>
     </header>
     <section>
         <asp:ContentPlaceHolder ID="body" runat="server">
