@@ -13,6 +13,15 @@ public class TokenRecuperacionDAO
             db.SaveChanges();
         }
     }
+    public void actualizarToken(ETokenRecuperacion tokenRecuperacion)
+    {
+        using(var db = new Mapeo())
+        {
+            db.TokenRecuperacion.Attach(tokenRecuperacion);
+            db.Entry(tokenRecuperacion).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+        }
+    }
     public ETokenRecuperacion obtenerTokenUsuario(EUsuario usuario)
     {
         using(var db = new Mapeo())

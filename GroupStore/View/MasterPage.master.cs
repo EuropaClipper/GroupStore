@@ -14,15 +14,19 @@ public partial class View_MasterPage : System.Web.UI.MasterPage
         badge.Visible = false;
         if (Session["usuario"] == null)
         {
-            imgPerfil.ImageUrl = "~/Resources/Pagina/sin_foto.png";
             mvDropDown.ActiveViewIndex = 0;
             mvNav.ActiveViewIndex = 0;
+        }
+        else
+        {
+            mvDropDown.ActiveViewIndex = 1;
+            mvNav.ActiveViewIndex = 1;
         }
     }
     protected void logOut_Click(object sender, EventArgs e)
     {
         Session["Usuario"] = null;
-        //Response.Redirect("Index.aspx");
+        Response.Redirect("VInicioSesion.aspx");
     }
 
     protected void aVerPerfil_ServerClick(object sender, EventArgs e)

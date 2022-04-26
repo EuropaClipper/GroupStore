@@ -27,5 +27,5 @@ public class EUsuario
     [Column("id_rol")]
     public int ID_Rol { get; set; }
     [NotMapped]
-    public ERol rol{ get { return new RolDAO().ObtenerRol(ID_Rol); } set { } }
+    public ERol Rol{ get { return new RolDAO().ObtenerRol(ID_Rol); } set { } }
 }

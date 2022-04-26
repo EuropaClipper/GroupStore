@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 public partial class View_VInicioSesion : System.Web.UI.Page
 {
@@ -8,7 +9,23 @@ public partial class View_VInicioSesion : System.Web.UI.Page
     }
     protected void Btn_IniciarSesion_Click(object sender, EventArgs e)
     {
-        if (new UsuarioDAO().VerificarUsuario(I_Correo.Value, I_Contrasena.Value)) this.ClientScript.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Bienvenido');window.location.href=\"Index.aspx\";</script>");
+        if (new UsuarioDAO().VerificarUsuario(I_Correo.Value.Trim(), I_Contrasena.Value.Trim()))
+        {
+            Session["usuario"] = new UsuarioDAO().ObtenerUsuarios().Where(x => x.Correo.Equals(I_Correo.Value.Trim()) && x.Contrasena.Equals(I_Contrasena.Value.Trim())).First();
+            string rol = ((EUsuario)Session["usuario"]).Rol.Rol;
+            switch (rol)
+            {
+                case "Administrador":
+                    Response.Redirect("VInicioAdministrador.aspx");
+                    break;
+                case "Comprador":
+                    Response.Redirect("Index.aspx");
+                    break;
+                case "Proveedor":
+                    Response.Redirect("Index.aspx");
+                    break;
+            }
+        }
         else this.ClientScript.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Datos incorrectos');</script>");
     }
 

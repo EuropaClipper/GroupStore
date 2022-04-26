@@ -12,4 +12,11 @@ public class UsuarioNegocioDAO
             db.SaveChanges();
         }
     }
+    public EUsuarioNegocio obtenerRelacionUsuarioNegocio(string cedula)
+    {
+        using(var db = new Mapeo())
+        {
+            return db.UsuarioNegocio.Where(x => x.CedulaUsuario.Equals(cedula)).FirstOrDefault();
+        }
+    }
 }

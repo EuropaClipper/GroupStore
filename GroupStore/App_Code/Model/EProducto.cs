@@ -26,4 +26,8 @@ public class EProducto
     public int IDCategoria { get; set; }
     [NotMapped]
     public ECategoria Categoria { get { return new CategoriaDAO().obtenerCategoria(IDCategoria); } set { } }
+    [Column("imagenes")]
+    public string[] Imagenes { get; set; }
+    [Column("capacidad")]
+    public float Capacidad { get; set; }
 }

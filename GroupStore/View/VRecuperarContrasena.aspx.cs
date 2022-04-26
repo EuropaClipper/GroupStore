@@ -32,11 +32,14 @@ public partial class View_VRecuperarContrasena : System.Web.UI.Page
         {
             this.ClientScript.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El token está vencido. Genere uno nuevo.');window.location.href=\"VInicioSesion.aspx\";</script>");
         }
+        ViewState["tokenUsuario"] = tokenRecuperacion;
         ViewState["cedulaUsuario"] = tokenRecuperacion.CedulaUsuario;
     }
     protected void CambiarContrasena_ServerClick(object sender, EventArgs e)
     {
         string cedulaUsuario = ViewState["cedulaUsuario"].ToString();
+        ((ETokenRecuperacion)ViewState["tokenUsuario"]).Estado = true;
+        new TokenRecuperacionDAO().actualizarToken(((ETokenRecuperacion)ViewState["tokenUsuario"]));
         EUsuario usuarioActualizado = new UsuarioDAO().ObtenerUsuario(cedulaUsuario);
         usuarioActualizado.Contrasena = I_Contrasena.Value.Trim();
         new UsuarioDAO().actualizarUsuario(usuarioActualizado);
