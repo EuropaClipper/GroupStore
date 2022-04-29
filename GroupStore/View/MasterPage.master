@@ -41,8 +41,8 @@
             <div class="text-end">
 
 
-                <button type="button" class="btn btn-outline-primary me-2">Iniciar Sesión</button>
-                <button type="button" class="btn btn-primary">Registrarse</button>
+                <button type="button" class="btn btn-outline-primary me-2"> <a class="nav-link" href="VInicioSesion.aspx">Iniciar Sesión</a></button>
+                <button type="button" class="btn btn-primary"> <a class="nav-link" href="VRegistro.aspx"> <span class="text-white">Registrarse</span></a></button>
             </div>
         </div>
     </header>

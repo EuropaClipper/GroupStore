@@ -9,7 +9,7 @@ public partial class View_MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        inicio.Attributes.Add("class", "nav-link active");
     }
     protected void logOut_Click(object sender, EventArgs e)
     {
@@ -68,4 +68,7 @@ public partial class View_MasterPage : System.Web.UI.MasterPage
         proveedores.Attributes.Add("class", "nav-link");
         contacto.Attributes.Add("class", "nav-link active");
     }
+
+
+
 }
