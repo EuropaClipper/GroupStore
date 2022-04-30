@@ -92,7 +92,7 @@
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalEditar">Editar</button>
                         </div>
                         <div class="col-12 col-sm-6 col-md-6 col-lg-3 text-center">
-                            <a href="VInicioAdministrador.aspx" class="btn btn-primary">Negocio</a>
+                            <a href="VistaNegocio.aspx" class="btn btn-primary">Negocio</a>
                         </div>
                     </asp:View>
                 </asp:MultiView>

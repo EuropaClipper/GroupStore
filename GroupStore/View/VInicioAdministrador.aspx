@@ -35,8 +35,8 @@
                         </svg>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Ver info. de usuario</a></li>
-                        <li><a class="dropdown-item" href="#!">Ver info. del negocio</a></li>
+                        <li><a class="dropdown-item" href="VInfoUsuario.aspx">Ver info. de usuario</a></li>
+                        <li><a class="dropdown-item" href="VistaNegocio.aspx">Ver info. del negocio</a></li>
                         <li>
                             <hr class="dropdown-divider" />
                         </li>
